@@ -32,11 +32,11 @@ with open("phonebook_raw.csv", encoding='utf-8') as f:
         # fio = re.split(r'\W+', f"{data[0]} {data[1]} {data[2]}")
         # Вариант 2
         # fio = re.sub(pattern_fio, r"\1 \2 \3", f"{data[0]} {data[1]} {data[2]}").split(' ')
-        # Вариант 2. Все три варианта рабочие
+        # Вариант 3. Все три варианта рабочие
         fio = [
-            re.sub(pattern_fio, r"\1", f"{data[0]} {data[1]} {data[2]}"),
-            re.sub(pattern_fio, r"\2", f"{data[0]} {data[1]} {data[2]}"),
-            re.sub(pattern_fio, r"\3", f"{data[0]} {data[1]} {data[2]}")
+            re.sub(pattern_fio, r"\1", f"{data[0]} {data[1]} {data[2]}").strip(),
+            re.sub(pattern_fio, r"\2", f"{data[0]} {data[1]} {data[2]}").strip(),
+            re.sub(pattern_fio, r"\3", f"{data[0]} {data[1]} {data[2]}").strip()
         ]
 
         filter_index = next((i for i, x in enumerate(contacts_list)
